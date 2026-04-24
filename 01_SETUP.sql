@@ -1,0 +1,33 @@
+-- =============================================
+-- SPORTS ANALYTICS PROJECT
+-- Sheet 1: Setup & Exploration
+-- =============================================
+
+USE WAREHOUSE SPORTS_ANALYTICS_WH;
+USE DATABASE SPORTS_DB;
+USE SCHEMA ANALYTICS;
+
+-- 1. Total rows
+SELECT COUNT(*) AS TOTAL_PLAYERS 
+FROM FOOTBALL_PLAYERS_RAW;
+
+-- 2. Preview data
+SELECT * FROM FOOTBALL_PLAYERS_RAW 
+LIMIT 10;
+
+-- 3. Distinct leagues
+SELECT DISTINCT COMP 
+FROM FOOTBALL_PLAYERS_RAW;
+
+-- 4. Distinct positions
+SELECT DISTINCT POS 
+FROM FOOTBALL_PLAYERS_RAW;
+
+-- 5. Check NULLs in key columns
+SELECT 
+    COUNT(*) AS TOTAL,
+    COUNT(PLAYER) AS HAS_PLAYER_NAME,
+    COUNT(SQUAD) AS HAS_SQUAD,
+    COUNT(COMP) AS HAS_LEAGUE,
+    COUNT(POS) AS HAS_POSITION
+FROM FOOTBALL_PLAYERS_RAW;
